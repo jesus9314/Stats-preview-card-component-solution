@@ -1,0 +1,133 @@
+/* variables */
+:root{
+    --inter:'Inter', sans-serif;
+    --lexend:'Lexend Deca', sans-serif;
+    --veryDarkBlue: hsl(233, 47%, 7%);
+    --darkDesaturatedBlue: hsl(244, 38%, 16%);
+    --softViolet: hsl(277, 64%, 61%);
+    --white: hsl(0, 0%, 100%);
+    --slightlyTransparentWhite: hsla(0, 0%, 100%, 0.75);
+    --slightlyTransparentWhite: hsla(0, 0%, 100%, 0.6);
+}
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--veryDarkBlue);
+    font-size: 15px;
+    font-family: var(--inter);
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Card component */
+.card{
+    width:320px;
+    background-color: var(--darkDesaturatedBlue);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+/* contenedor de imagen */
+.card__img{
+    width: 320px;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+}
+.card__img > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 5px 0 0 ;
+    content: url("../images/image-header-mobile.jpg");
+}
+/*Transparencia de imagen*/
+.cover{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    background-color: var(--softViolet);
+    position: absolute;
+    top: 0;
+    opacity: 0.6;
+}
+/*Contenedor de texto*/
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    gap:20px;
+    text-align: center;
+    color: var(--white);
+}
+.content > h1{
+    font-weight:700;
+    line-height: 1.5;
+}
+.content > h1 > span{
+    color: var(--softViolet);
+}
+.content > p{
+    line-height: 1.8;
+    font-weight:400;
+    color: var(--slightlyTransparentWhite);
+}
+.stats{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}
+.stat{
+    font-weight: var(--lexend);
+    font-weight: 400;
+}
+.stat > span{
+    color: var(--slightlyTransparentWhite);
+    text-transform: uppercase;
+    font-size: 10px;
+}
+/*Media Query*/
+@media (min-width: 767px){
+    .card{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 900px;
+        height: 400px;
+        overflow: hidden;
+        align-items: center;
+    }
+    .card__img{
+        height: 100%;
+        width: 450px;
+        border-radius: 0 5px 5px 0;
+    }
+    .card__img > img{
+        border-radius: 0 5px 5px 0;
+        content: url("../images/image-header-desktop.jpg");
+    }
+    .cover{
+        border-radius: 0 5px 5px 0;
+    }
+    .content{
+        width: 450px;
+        margin: 25px;
+        text-align: start;
+    }
+    .stats{
+        flex-direction: row;
+        gap: 30px;
+        width: 100%;
+        justify-content: space-between;
+        padding-right: 5rem;
+        padding-top: 2rem;
+    }
+}
